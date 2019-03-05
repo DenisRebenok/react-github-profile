@@ -4,11 +4,10 @@ import isEqual from 'lodash/isEqual'
 import * as GitHub from '../../../github-client'
 
 function useSetState(initialState) {
-  const [state, setState] = useReducer(
+  return useReducer(
     (state, newState) => ({...state, ...newState}),
     initialState,
   )
-  return [state, setState]
 }
 
 function useSafeSetState(initialState) {
@@ -20,6 +19,7 @@ function useSafeSetState(initialState) {
     return () => (mountedRef.current = false)
   }, [])
   const safeSetState = (...args) => mountedRef.current && setState(...args)
+
   return [state, safeSetState]
 }
 
@@ -31,41 +31,50 @@ function usePrevious(value) {
   return ref.current
 }
 
-function Query({query, variables, children, normalize = data => data}) {
+function useDeepCompareEffect(callback, inputs) {
+  const cleanupRef = useRef()
+  useEffect(() => {
+    if (!isEqual(previousInputs, inputs)) {
+      cleanupRef.current = callback()
+    }
+    return cleanupRef.current
+  })
+  const previousInputs = usePrevious(inputs)
+}
+
+function Query({query, variables, normalize = data => data, children}) {
   const client = useContext(GitHub.Context)
-  const [state, safeSetState] = useSafeSetState({
+  const [state, setState] = useSafeSetState({
     loaded: false,
     fetching: false,
     data: null,
     error: null,
   })
 
-  useEffect(() => {
-    if (isEqual(previousInputs, [query, variables])) {
-      return
-    }
-    safeSetState({fetching: true})
-
-    client
-      .request(query, variables)
-      .then(res =>
-        safeSetState({
-          data: normalize(res),
-          error: null,
-          loaded: true,
-          fetching: false,
-        }),
-      )
-      .catch(error =>
-        safeSetState({
-          error,
-          data: null,
-          loaded: false,
-          fetching: false,
-        }),
-      )
-  })
-  const previousInputs = usePrevious([query, variables])
+  useDeepCompareEffect(
+    () => {
+      setState({fetching: true})
+      client
+        .request(query, variables)
+        .then(res =>
+          setState({
+            data: normalize(res),
+            error: null,
+            loaded: true,
+            fetching: false,
+          }),
+        )
+        .catch(error =>
+          setState({
+            error,
+            data: null,
+            loaded: false,
+            fetching: false,
+          }),
+        )
+    },
+    [query, variables],
+  )
 
   return children(state)
 }
