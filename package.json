@@ -3,20 +3,20 @@
   "version": "0.2.0",
   "private": true,
   "dependencies": {
-    "@emotion/core": "10.0.0-beta.8",
-    "@emotion/styled": "10.0.0-beta.8",
+    "@emotion/core": "10.0.22",
+    "@emotion/styled": "10.0.23",
     "@reach/router": "1.2.1",
-    "date-fns": "1.29.0",
-    "emotion": "10.0.0-beta.8",
-    "emotion-theming": "10.0.0-beta.8",
+    "date-fns": "2.6.0",
+    "emotion": "10.0.23",
+    "emotion-theming": "10.0.19",
     "graphql-request": "1.8.2",
-    "match-sorter": "2.3.0",
+    "match-sorter": "4.0.2",
     "netlify-auth-providers": "1.0.0-alpha5",
-    "prop-types": "15.6.2",
-    "react": "16.7.0-alpha.2",
+    "prop-types": "15.7.2",
+    "react": "16.11.0",
     "react-cache": "2.0.0-alpha.1",
-    "react-dom": "16.7.0-alpha.2",
-    "react-error-boundary": "1.2.3",
+    "react-dom": "16.11.0",
+    "react-error-boundary": "1.2.5",
     "react-loadable": "^5.5.0"
   },
   "scripts": {
@@ -39,16 +39,16 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "cross-env": "5.2.0",
-    "docz": "0.12.9",
-    "husky": "1.1.3",
-    "jest-dom": "2.1.1",
-    "lint-staged": "8.0.4",
-    "lodash": "4.17.13",
-    "normalize.css": "8.0.0",
-    "npm-run-all": "4.1.3",
-    "prettier": "1.14.3",
-    "react-scripts": "2.1.1",
-    "react-testing-library": "5.3.0"
+    "cross-env": "6.0.3",
+    "docz": "1.3.2",
+    "husky": "3.0.9",
+    "jest-dom": "4.0.0",
+    "lint-staged": "9.4.2",
+    "lodash": "4.17.15",
+    "normalize.css": "8.0.1",
+    "npm-run-all": "4.1.5",
+    "prettier": "1.18.2",
+    "react-scripts": "3.2.0",
+    "react-testing-library": "8.0.1"
   }
 }

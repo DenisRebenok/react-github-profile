@@ -1,5 +1,7 @@
 # react-github-profile
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/DenisRebenok/react-github-profile.svg)](https://greenkeeper.io/)
+
 An app I'm going to use to learn about React Hooks 👍
 
 ## Setup
