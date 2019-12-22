@@ -8,7 +8,7 @@
     "@reach/router": "1.2.1",
     "date-fns": "2.8.1",
     "emotion": "10.0.23",
-    "emotion-theming": "10.0.19",
+    "emotion-theming": "10.0.27",
     "graphql-request": "1.8.2",
     "match-sorter": "4.0.2",
     "netlify-auth-providers": "1.0.0-alpha5",
