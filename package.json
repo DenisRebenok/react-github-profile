@@ -10,7 +10,7 @@
     "emotion": "10.0.27",
     "emotion-theming": "10.0.27",
     "graphql-request": "1.8.2",
-    "match-sorter": "4.0.2",
+    "match-sorter": "4.1.0",
     "netlify-auth-providers": "1.0.0-alpha5",
     "prop-types": "15.7.2",
     "react": "16.13.1",
