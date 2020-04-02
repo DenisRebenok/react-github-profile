@@ -40,7 +40,7 @@
   ],
   "devDependencies": {
     "cross-env": "7.0.2",
-    "docz": "2.2.0",
+    "docz": "2.3.0",
     "husky": "4.2.3",
     "jest-dom": "4.0.0",
     "lint-staged": "10.1.1",
